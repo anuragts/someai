@@ -21,6 +21,7 @@ export default  function Home() {
     
     const response = await fetch('/api/gpt',{
       method: 'POST',
+      body: JSON.stringify({prompt : dataObj.prompt}),
       headers: {
         'Content-Type': 'application/json'
       },
@@ -40,7 +41,7 @@ export default  function Home() {
 
       <main className={styles.main}>
         <form onSubmit={handleSubmit}>
-          {/* <input type="text" name="text" /> */}
+          <input type="text" name="prompt" />
           <button type='submit'>Submit</button>
         </form>
         {loading && <p>Loading...</p>}

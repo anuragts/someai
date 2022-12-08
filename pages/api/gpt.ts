@@ -19,8 +19,10 @@ export default async function (req:NextApiRequest,res:NextApiResponse){
 
     await api.ensureAuth()
 
+    const prompt = req.body.prompt
+    
     const response = await api.sendMessage(
-        'Write a java program that reads a Fahrenheit degree in a double value from the console, then converts it to Celsius and displays the result. '
+        `${prompt}`
       )
     
       // response is a markdown-formatted string

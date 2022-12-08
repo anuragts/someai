@@ -44,7 +44,8 @@ export default  function Home() {
           <input type="text" name="prompt" />
           <button type='submit'>Submit</button>
         </form>
-        {loading && <p>Loading...</p>}
+        {loading? <div> <h1>Loading...</h1>
+        <h3>It may take a minute or two ...</h3> </div> :null}
         <ReactMarkdown>{data}</ReactMarkdown>
         </main>
     </div>

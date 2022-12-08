@@ -13,13 +13,14 @@ export default async function (req:NextApiRequest,res:NextApiResponse){
     } 
 
     const api  =  new ChatGPTAPI({
-        sessionToken: process.env.SESSION_TOKEN as string 
+        sessionToken: process.env.SESSION_TOKEN as string ,
+        // markdown: false 
     })
 
     await api.ensureAuth()
 
     const response = await api.sendMessage(
-        'Write a python version of bubble sort.'
+        'Write a javascript code  of bubble sort.'
       )
     
       // response is a markdown-formatted string

@@ -5,7 +5,9 @@ import { useState } from 'react';
 import ReactMarkdown from 'react-markdown'
 
 
-export default  function Home() {
+
+ function Home() {
+
   interface Data {
     text: string;
   }
@@ -25,11 +27,16 @@ export default  function Home() {
       headers: {
         'Content-Type': 'application/json'
       },
+      // do not return server time out error
     })
 
     const result = await response.json();
-    setData(result);
-    setLoading(false);
+
+    setTimeout(() => {
+      setLoading(false);
+      setData(result);
+    }, 2000);
+    
   }
 
   return (
@@ -52,3 +59,14 @@ export default  function Home() {
     </div>
   )
 }
+// export async function getServerSideProps(context:any) {
+//   const timeout = context.serverRuntimeConfig.timeout;
+//   // Use the timeout value to configure your API request..
+//   return {
+//     props: {
+//       timeout,
+//     }, // will be passed to the page component as props
+//   }
+// }
+
+export default Home

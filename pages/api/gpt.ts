@@ -26,7 +26,7 @@ export default async function (req:NextApiRequest,res:NextApiResponse){
       )
     
       // response is a markdown-formatted string
-      console.log(response)
+    //   console.log(response)
 
         res.status(200).json(response)
 

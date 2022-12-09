@@ -1,9 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Chillax", sans-serif;
+
 }
 
 a {
@@ -23,4 +27,66 @@ a {
     color: white;
     background: black;
   }
+}
+
+/* custom spinner stye */
+
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 300px;
+  height: 80px;
+  /* color: #; */
+}
+.lds-ripple div {
+  margin-top: 2rem;
+  position: absolute;
+  border: 4px solid #cef;
+  margin-left: 6.5rem;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  4.9% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  5% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 72px;
+    height: 72px;
+    opacity: 0;
+  }
+}
+
+/* add media query */
+
+@media (max-width: 768px) {
+  .lds-ripple {
+    margin-top: 6rem;
+    height: 60px;
+  }
+
 }

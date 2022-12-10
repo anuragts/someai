@@ -17,6 +17,7 @@ function Home() {
 
   const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     setLoading(true);
+    setError(false);
     e.preventDefault();
     const form = e.target;
     const data = new FormData(form);

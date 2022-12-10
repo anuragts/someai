@@ -11,6 +11,7 @@ function Home() {
   }
   const [data, setData] = useState<string>("");
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
 
 
@@ -28,9 +29,18 @@ function Home() {
       headers: {
         "Content-Type": "application/json",
       },
-      // do not return server time out error
-    });
 
+      // handle errors
+
+      
+    });
+    
+    if (response.status === 500) {
+      setError(true);
+      setLoading(false);
+      return ;
+
+    }
     const result = await response.json();
 
     setTimeout(() => {
@@ -71,6 +81,12 @@ function Home() {
           <div className="text-center my-5 ">
             <Spinner />
             {" "}
+          </div>
+        ) : null}
+
+        {error ? (
+          <div className="text-center my-5 text-red-500 text-2xl font-semibold">
+            Something went wrong !!! Try again later
           </div>
         ) : null}
         <div className="break-words mx-5 sm:mx-20 sm:my-[4rem] sm:flex sm:justify-center">

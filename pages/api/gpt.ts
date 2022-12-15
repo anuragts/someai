@@ -12,22 +12,22 @@ export default async function (req:NextApiRequest,res:NextApiResponse){
         sessionToken: string;
     } 
 
-    const api  =  new ChatGPTAPI({
-        sessionToken: process.env.SESSION_TOKEN as string ,
-        // markdown: false 
-    })
+    // const api  =  new ChatGPTAPI({
+    //     sessionToken: process.env.SESSION_TOKEN as string ,
+    //     // markdown: false 
+    // })
 
-    await api.ensureAuth()
+    // await api.ensureAuth()
 
-    const prompt = req.body.prompt
+    // const prompt = req.body.prompt
     
-    const response = await api.sendMessage(
-        `${prompt}`
-      )
+    // const response = await api.sendMessage(
+    //     `${prompt}`
+    //   )
     
-      // response is a markdown-formatted string
-    //   console.log(response)
+    //   // response is a markdown-formatted string
+    // //   console.log(response)
 
-        res.status(200).json(response)
+        res.status(200).json("hello")
 
 }
